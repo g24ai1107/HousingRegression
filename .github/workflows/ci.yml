@@ -1,6 +1,5 @@
 name: CI for HousingRegression
 
-# Trigger this workflow on push to specific branches
 on:
   push:
     branches:
@@ -10,7 +9,7 @@ on:
 
 jobs:
   build:
-    runs-on: macos-latest  # You can also use ubuntu-latest if you prefer Linux
+    runs-on: macos-latest
 
     steps:
       - name: Checkout code

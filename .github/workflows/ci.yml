@@ -1,0 +1,32 @@
+name: CI for HousingRegression
+
+# Trigger this workflow on push to specific branches
+on:
+  push:
+    branches:
+      - main
+      - reg
+      - hyper
+
+jobs:
+  build:
+    runs-on: macos-latest  # You can also use ubuntu-latest if you prefer Linux
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.11
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run regression script
+        run: |
+          python regression.py
+
